@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_nvvm/resources/localization/app_localization.dart';
+import 'package:getx_nvvm/resources/routes/routes.dart';
 import 'package:getx_nvvm/view/splash_screen.dart';
 
 void main() {
@@ -14,8 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      translations: AppLocalization(),
+      locale: Locale('en_US'),
+      fallbackLocale: Locale('en_US'),
       title: 'Flutter Demo',
       home: SplashScreen(),
+      getPages: AppRoutes.appRoutes(),
     );
   }
 }
