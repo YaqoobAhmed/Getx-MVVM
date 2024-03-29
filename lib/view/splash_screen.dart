@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_nvvm/resources/assets/image_assets.dart';
-import 'package:getx_nvvm/resources/components/internet_exception_widget.dart';
 import 'package:getx_nvvm/resources/components/round_button.dart';
 import 'package:getx_nvvm/utils/utils.dart';
 import 'package:flutter_svg/flutter_svg.dart';
