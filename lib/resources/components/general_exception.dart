@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_nvvm/resources/colors/app_color.dart';
 
-class InternetExceptionWidget extends StatefulWidget {
+class GeneralExceptionWidget extends StatefulWidget {
   final VoidCallback onPressed;
-  const InternetExceptionWidget({super.key, required this.onPressed});
+  const GeneralExceptionWidget({super.key, required this.onPressed});
 
   @override
-  State<InternetExceptionWidget> createState() =>
-      _InternetExceptionWidgetState();
+  State<GeneralExceptionWidget> createState() => _GeneralExceptionWidgetState();
 }
 
-class _InternetExceptionWidgetState extends State<InternetExceptionWidget> {
+class _GeneralExceptionWidgetState extends State<GeneralExceptionWidget> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -31,7 +30,7 @@ class _InternetExceptionWidgetState extends State<InternetExceptionWidget> {
             padding: const EdgeInsets.only(top: 30.0),
             child: Center(
               child: Text(
-                "internet_exception".tr,
+                "general_exception".tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20),
               ),
@@ -47,7 +46,7 @@ class _InternetExceptionWidgetState extends State<InternetExceptionWidget> {
               width: 150,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: AppColor.primaryButtonColor,
+                color: AppColor.primaryColor,
               ),
               child: Center(
                   child: Text(
