@@ -12,7 +12,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginView> {
-  final loginViewModel = LoginViewModel();
+  final loginViewModel = Get.put(LoginViewModel());
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -58,12 +58,12 @@ class _LoginScreenState extends State<LoginView> {
                   },
                   obscureText: true,
                   obscuringCharacter: '+',
-                  // onFieldSubmitted: (value) {
-                  //   Utils.fieldFocusChange(
-                  //       context,
-                  //       loginViewModel.emailFocusNode.value,
-                  //       loginViewModel.passwordFocusNode.value);
-                  // },
+                  onFieldSubmitted: (value) {
+                    Utils.fieldFocusChange(
+                        context,
+                        loginViewModel.emailFocusNode.value,
+                        loginViewModel.passwordFocusNode.value);
+                  },
                   controller: loginViewModel.passwordController.value,
                   focusNode: loginViewModel.passwordFocusNode.value,
                   decoration: InputDecoration(
@@ -73,11 +73,15 @@ class _LoginScreenState extends State<LoginView> {
                 const SizedBox(
                   height: 40,
                 ),
-                RoundButton(
+                Obx(() => RoundButton(
+                    isLoading: loginViewModel.isLoading.value,
                     onPressed: () {
-                      if (_formkey.currentState!.validate()) ;
+                      if (_formkey.currentState!.validate()) {
+                        loginViewModel.loginApi();
+                        print("login successful");
+                      }
                     },
-                    title: "login".tr)
+                    title: "login".tr))
               ],
             ),
           ),

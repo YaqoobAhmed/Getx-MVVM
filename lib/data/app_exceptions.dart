@@ -23,6 +23,6 @@ class InvalidUrl extends AppExceptions {
   InvalidUrl([String? message]) : super(message, 'Invalid Url Exceptions');
 }
 
-class FatchDataException extends AppExceptions {
-  FatchDataException([String? message]) : super(message, '');
+class FetchDataException extends AppExceptions {
+  FetchDataException([String? message]) : super(message, 'aaa');
 }
