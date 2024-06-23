@@ -8,8 +8,9 @@ class SplashServices {
   UserPreferences userPreferences = UserPreferences();
   void isLogin() {
     userPreferences.getUser().then((value) {
-      print(value.token);
-      if (value.token!.isEmpty || value.token.toString() == 'null') {
+      print('token ${value.token}');
+      print('isLogin ${value.isLogin}');
+      if (value.isLogin == false || value.isLogin.toString() == 'null') {
         Timer(const Duration(seconds: 3),
             () => Get.toNamed(RoutesName.loginView));
       } else {

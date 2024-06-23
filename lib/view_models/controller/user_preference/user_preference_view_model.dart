@@ -5,17 +5,19 @@ class UserPreferences {
   Future<bool> saveUser(UserModel responseModel) async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('token', responseModel.token.toString());
-
+    sp.setBool('isLogin', responseModel.isLogin!);
+    print(responseModel.token);
     return true;
   }
 
   Future<UserModel> getUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     String? token = sp.getString('token');
-    return UserModel(token: token);
+    bool? isLogin = sp.getBool('isLogin');
+    return UserModel(token: token, isLogin: isLogin);
   }
 
-  Future<bool> removeUser(UserModel responseModel) async {
+  Future<bool> removeUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();
     return true;
