@@ -11,11 +11,9 @@ class SplashServices {
       print('token ${value.token}');
       print('isLogin ${value.isLogin}');
       if (value.isLogin == false || value.isLogin.toString() == 'null') {
-        Timer(const Duration(seconds: 3),
-            () => Get.toNamed(RoutesName.loginView));
+        Get.toNamed(RoutesName.loginView);
       } else {
-        Timer(
-            const Duration(seconds: 3), () => Get.toNamed(RoutesName.homeView));
+        Get.toNamed(RoutesName.homeView);
       }
     });
   }
